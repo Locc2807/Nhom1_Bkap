@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/assets/css/loginform.css}">
+<link rel="stylesheet"
+	th:href="@{'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css'}" />
+<link type="text/css" rel="stylesheet" th:href="@{/assets/css/error-messages.css}" />
+
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+	const signUpButton = document.getElementById('signUp');
+	const signInButton = document.getElementById('signIn');
+	const container = document.getElementById('container');
+
+	signUpButton.addEventListener('click', () => {
+		container.classList.add("right-panel-active");
+	});
+
+	signInButton.addEventListener('click', () => {
+		container.classList.remove("right-panel-active");
+	});
+});
+</script>
+
+</head>
+<body>
+	<div class="container" id="container">
+		<div class="form-container sign-up-container">
+    <form action="/customer/signup" method="POST" role="form" th:object="${customer}">
+        <h1>Create Account</h1>
+        <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your email for registration</span>
+        
+        <!-- Name -->
+        <div class="input-group">
+            <input th:field="*{name}" type="text" placeholder="Name" />
+            <div th:if="${#fields.hasErrors('name')}" class="error-message">
+                <i class="fa fa-exclamation-circle"></i>
+                <span th:errors="*{name}"></span>
+            </div>
+        </div>
+
+        <!-- Email -->
+        <div class="input-group">
+            <input th:field="*{email}" type="email" placeholder="Email" />
+            <div th:if="${#fields.hasErrors('email')}" class="error-message">
+                <i class="fa fa-exclamation-circle"></i>
+                <span th:errors="*{email}"></span>
+            </div>
+        </div>
+
+        <!-- Password -->
+        <div class="input-group">
+            <input th:field="*{password}" type="password" placeholder="Password" />
+            <div th:if="${#fields.hasErrors('password')}" class="error-message">
+                <i class="fa fa-exclamation-circle"></i>
+                <span th:errors="*{password}"></span>
+            </div>
+        </div>
+
+        <button>Sign Up</button>
+    </form>
+</div>
+
+
+
+		<div class="form-container sign-in-container">
+			<form th:action="@{/customer/signin}" method="POST" role="form"
+				th:object="${customer}">
+				<h1>Sign in</h1>
+				<div class="social-container">
+					<a href="#" class="social"><i class="fab fa-facebook-f"></i></a> <a
+						href="#" class="social"><i class="fab fa-google-plus-g"></i></a> <a
+						href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+				</div>
+				<span>or use your account</span> <input type="email" name="email" placeholder="Email" required />
+				<input type="password" name="password" placeholder="Password" required />
+				<a
+					href="#">Forgot your password?</a>
+				<button>Sign In</button>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Welcome Back!</h1>
+					<p>To keep connected with us please login with your personal
+						info</p>
+					<button class="ghost" id="signIn">Sign In</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Hello, Friend!</h1>
+					<p>Enter your personal details and start journey with us</p>
+					<button class="ghost" id="signUp">Sign Up</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<p>
+			Welcome to Techzone, Paradise for Techie <i class="fa fa-heart"></i>
+		</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="profile-layout" th:with=" title='Profile'">
+<head>
+<meta charset="utf-8">
+</head>
+
+<body>
+	<div class="col-md-8" layout:fragment="content">
+
+		<div class="row">
+			<div class="col-md-6">
+				<label>User Id</label>
+			</div>
+			<div class="col-md-6">
+				<p
+					th:class="${customer != null && customer.id != null ? 'data' : 'unknown'}"
+					th:text="${customer != null && customer.id != null ? customer.id : 'Unknown'}"></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<label>Email</label>
+			</div>
+			<div class="col-md-6">
+				<p
+					th:class="${customer != null && customer.email != null ? 'data' : 'unknown'}"
+					th:text="${customer != null && customer.email != null ? customer.email : 'Unknown'}"></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<label>Phone</label>
+			</div>
+			<div class="col-md-6">
+				<p
+					th:class="${customer != null && customer.phone != null ? 'data' : 'unknown'}"
+					th:text="${customer != null && customer.phone != null ? customer.phone : 'Unknown'}"></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<label>Gender</label>
+			</div>
+			<div class="col-md-6">
+				<p
+					th:class="${customer != null && customer.gender != null ? 'data' : 'unknown'}"
+					th:text="${customer != null && customer.gender != null ? customer.gender : 'Unknown'}"></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<label>Birthday</label>
+			</div>
+			<div class="col-md-6">
+				<p
+					th:class="${customer != null && customer.birthday != null ? 'data' : 'unknown'}"
+					th:text="${customer != null && customer.birthday != null ? customer.birthday : 'Unknown'}"></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<label>Address</label>
+			</div>
+			<div class="col-md-6">
+				<p
+					th:class="${customer != null && customer.address != null ? 'data' : 'unknown'}"
+					th:text="${customer != null && customer.address != null ? customer.address : 'Unknown'}"></p>
+			</div>
+		</div>
+	</div>
+
+</body>

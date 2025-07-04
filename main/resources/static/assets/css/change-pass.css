@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.form-container {
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 30px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	background-color: #f9f9f9;
+}
+
+.form-container h2 {
+	text-align: center;
+}
+
+.form-container .alert {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.home-btn {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	z-index: 1000;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+.home-btn:hover {
+	background-color: #0056b3;
+}
