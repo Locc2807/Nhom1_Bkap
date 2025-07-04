@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link type="text/css" rel="stylesheet"
+	th:href="@{/assets/css/profile.css}" />
+	
+	<link type="text/css" rel="stylesheet"
+	th:href="@{/assets/css/change-pass.css}" />
+	
+	
+</head>
+
+<body>
+	<div class="container emp-profile">
+		<form method="post">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="profile-img">
+
+						<img
+							th:src="@{${customer.profilePicture != null} ? '/uploads/' + ${customer.profilePicture} : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog'}"
+							alt="Profile Picture"
+							style="max-width: 150px; max-height: 150px; border-radius: 50%;" />
+
+						
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="profile-head">
+						<h5>
+							<span class="customer-name" th:text="${customer.name}"></span> <span
+								class="join-date"> <!-- Use the formatted date --> <span
+								th:text="'Join from ' + ${formattedDate}"></span>
+							</span>
+						</h5>
+						<h6>Regular member</h6>
+						<p class="proile-rating">
+							RANKINGS : <span>8/10</span>
+						</p>
+
+					</div>
+				</div>
+				<div class="col-md-2">
+					<input type="submit" class="profile-edit-btn" name="btnAddMore"
+						value="Edit Profile" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="profile-work">
+						<p><a style="color:red;" th:href="@{/}">Home Page</a></p>
+						<a th:href="@{/customer/profile}">User Profile</a><br /> <a
+							th:href="@{/customer/edit}">Edit profile</a><br /> <a th:href="@{/customer/change-password}">Change
+							password</a>
+						<p></p>
+						<br />
+						<a style="color:purple;" th:href="@{/customer/signout}">Log out</a>
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+					</div>
+				</div>
+				<div layout:fragment="content"></div>
+
+
+			</div>
+		</form>
+	</div>
+
+</body>
